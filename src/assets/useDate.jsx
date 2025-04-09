@@ -9,7 +9,11 @@ const useDate = () => {
   }
 
   useEffect(() => {
-    currentDate();
+    const interval = setInterval(() => {
+      currentDate();
+    }, 1000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return { date };
